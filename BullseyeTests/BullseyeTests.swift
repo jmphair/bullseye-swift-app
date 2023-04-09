@@ -20,15 +20,16 @@ final class BullseyeTests: XCTestCase {
     game = nil
   }
   
-  func testExample() throws {
-    XCTAssertEqual(game.points(sliderValue: 50), 999)
+  func testScorePositive() {
+    var guess = game.target + 5
+    var score = game.points(sliderValue: guess)
+    XCTAssertEqual(score, 95)
   }
   
-//  func testPerformanceExample() throws {
-//    // This is an example of a performance test case.
-//    self.measure {
-//      // Put the code you want to measure the time of here.
-//    }
-//  }
+  func testScoreNegative() {
+    var guess = game.target - 5
+    var score = game.points(sliderValue: guess)
+    XCTAssertEqual(score, 95)
+  }
   
 }
