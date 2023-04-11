@@ -49,6 +49,7 @@ struct ContentView: View {
               gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
           }
         )
+        
         .foregroundColor(Color.white)
         .cornerRadius(21.0)
         .bold()
@@ -58,7 +59,7 @@ struct ContentView: View {
           let roundedValue =
             Int(sliderValue
               .rounded())
-          return Alert(title: Text("Hello there!"), message: Text("THe sliders value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round."), dismissButton: .default(Text("Awesome!")))
+          return Alert(title: Text("Hello there!"), message: Text("The sliders value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round."), dismissButton: .default(Text("Awesome!")))
         })
       }
     }
@@ -69,6 +70,8 @@ struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
     ContentView()
-      .previewLayout(.fixed(width: 568, height: 320))
+      .preferredColorScheme(.dark)
+      .padding()
+      .previewDevice("iPhone 14 Pro Max")
   }
 }
