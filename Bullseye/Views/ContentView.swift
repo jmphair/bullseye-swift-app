@@ -16,12 +16,13 @@ struct ContentView: View {
   var body: some View {
     VStack {
       VStack {
-        Text("🎯🎯🎯\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
+        Text("🎯🎯🎯\nPut the Bullseye as close as you can to".uppercased())
           .bold()
-          .kerning(2.0)
           .multilineTextAlignment(.center)
           .lineSpacing(4.0)
           .font(.footnote)
+          .kerning(2.0)
+          .padding(.horizontal, 30)
         Text(String(game.target))
           .kerning(-1.0)
           .font(.largeTitle)
@@ -33,12 +34,18 @@ struct ContentView: View {
           Text("100")
             .bold()
         }
+        .padding()
         Button(action: {
-          print("Hello, SwiftUI!")
           alertIsVisible = true
         }) {
-          Text("Hit me")
+          Text("Hit me".uppercased())
         }
+        .padding(20.0)
+        .background(Color.blue)
+        .foregroundColor(Color.white)
+        .cornerRadius(21.0)
+        .bold()
+        .font(.title3)
         .alert(isPresented: $alertIsVisible,
           content: {
           let roundedValue =
